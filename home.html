@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+
+<h2>Welcome, <span th:text="${user.firstName} ?: 'User'">User</span>
+    <span th:text="${user.lastName} ?: ''"></span>!
+</h2>
+
+<img th:src="${user.photoUrl} ?: '/uploads/default.png'" alt="User Photo" width="150"/><br><br>
+
+<p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+<p><strong>Mobile:</strong> <span th:text="${user.mobileNumber} ?: 'N/A'"></span></p>
+<p><strong>Date of Birth:</strong> <span th:text="${user.dateOfBirth} ?: 'N/A'"></span></p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>
